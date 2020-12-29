@@ -1,0 +1,51 @@
+@startuml
+enum NumberType {
+- Mobile
+- Working
+- Home
+}
+
+class ContactNumber {
+- type : NumberType
+- number : String
+--
++ ContactNumber(NumberType type, String number)
+--
++ getNumber() : String
++ getType() : NumberType
++ toString() : String
+}
+
+class ContactList {
+- contacts : List<Contact>
+--
++ ContactList()
+--
++ addContact(Contact contact)
++ removeContact(int index)
++ getContact(int index) : Contact
++ changeContact(int index, Contact contact)
++ find(String key) : List<Contact>
++ getContactList() : List<Contact>
+}
+
+class Contact {
+- firstName : String
+- secondName : String
+- numbers : List<ContactNumber>
+--
++ Contact(String firstName, String secondName)
+--
++ getFirstName() : String
++ setFirstName(String firstName)
++ getSecondName() : String
++ setSecondName(String secondName)
++ getNumbers() : List<ContactNumber>
++ addNumber(ContactNumber contactNumber)
++ toString() : String
+}
+
+NumberType ..> ContactNumber
+ContactNumber -> ContactList
+ContactList <- Contact
+@enduml
