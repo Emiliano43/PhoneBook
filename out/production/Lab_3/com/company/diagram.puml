@@ -45,7 +45,7 @@ class Contact {
 + toString() : String
 }
 
-NumberType ..> ContactNumber
-ContactNumber -> ContactList
-ContactList <- Contact
+NumberType ..o ContactNumber
+ContactNumber -* ContactList
+ContactList *-- Contact
 @enduml
